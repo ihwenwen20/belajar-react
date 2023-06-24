@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Counter } from './features/counter/Counter';
 import './App.css';
 import Navbar from './components/LatihanReactContext/Navbar'
@@ -9,12 +10,15 @@ import { AppProvider } from './context/app-context';
 import Reducer from './components/LatihanReactContext/Reducer';
 import { ThemeProvider } from './context/theme-context';
 
+import SoalDea from './components/SoalDea/SoalDea';
+import Jawaban from './components/SoalDea/Jawaban';
+
 
 function App() {
 
 	return (
 		<div className="App">
-			<AppProvider>
+			{/* <AppProvider>
 				<ThemeProvider>
 					<br />
 					<Navbar />
@@ -29,7 +33,14 @@ function App() {
 					<hr />
 					<Counter />
 				</ThemeProvider>
-			</AppProvider>
+			</AppProvider> */}
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<SoalDea />} />
+					<Route path="/jawaban" element={<Jawaban />} />
+				</Routes>
+			</BrowserRouter>
+
 		</div>
 	);
 }
